@@ -71,9 +71,9 @@ function addLetters() {
     var word = $('#letters').val();
     var wordArray = [];
     
-    if (word.length < cols){
+    if (word.length != cols){
         
-        alert('It appears you missed some letters');
+        alert('Please provide the correct number of letters (' + cols + ')');
         
     } else {
         
