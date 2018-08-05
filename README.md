@@ -1,2 +1,2 @@
-# word_grid_guru
+# Word Grid Guru
 Tool that helps the user solve a word search
