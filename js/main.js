@@ -27,7 +27,7 @@ $(document).ready(function() {
     
 });
 
-function viewSample() {
+async function viewSample() {
     //runs the program against a sample grid and dictionary of words
     
     cols = 10;
@@ -42,7 +42,7 @@ function viewSample() {
     $('#wordGrid').hide();
     $('#view-sample').hide();
     
-    getResults();
+    await getResults();
     
 }
 
@@ -104,27 +104,32 @@ function addLetters() {
     
 }
 
-function getResults() {
+const getDefaultWordList = async function() {
+
+    let response = await fetch('https://raw.githubusercontent.com/irtriskit/Word-Grid-Guru/master/js/words.txt');
+    let data = await response.text();
+
+    return data.split('\n');
+
+}
+
+const getResults = async function() {
     
     if ($('#chkDictionary').is(':checked') || $('#txtWordList').val().length == 0) {
         
-        $.get('js/words.txt', function(data){  
-                 
-            var words = data.split('\n');      
-                      
-            for (var i = 0, len = words.length; i < len; i++){
+        var words = await getDefaultWordList();     
+        console.log(words);
+        for (var i = 0, len = words.length; i < len; i++){
+            
+            if (words[i].length > 2) {
                 
-                if (words[i].length > 2) {
-                    
-                    wordList.push(words[i]);   
-                           
-                }
-                
+                wordList.push(words[i]);   
+                        
             }
             
-        	outputResults();
-        
-        }); 
+        }
+            
+        outputResults();
         
     } else {
         
