@@ -1,3 +1,8 @@
+html {
+	background-color: #333;
+	color: #eee !important;
+}
+
 .container {
 	width:100%;
 }
@@ -41,11 +46,11 @@ textarea:disabled{
 }
 
 input:invalid {
-  border: 1px solid red;
+  	border: 1px solid red;
 }
 
 input:valid {
-  border: 1px solid black;
+  	border: 1px solid black;
 }
 
 @media (max-width: 768px) {
