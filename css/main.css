@@ -1,21 +1,44 @@
+:root {
+	--light-blue: #0099e6;
+	--medium-blue: #006699;
+	--dark-blue: #004466;
+	--dark-text: #002233;
+	--light-text: #eee;
+	--highlight: #ff7cb3;
+	--red: #bd0039;
+}
+
 html {
-	background-color: #333;
-	color: #eee !important;
+	background-color: var(--light-blue);
+	color: var(--dark-text);
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
 	width:100%;
 }
 
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-family: 'Courier New', Courier, monospace;
+}
+
 .results-table th {
-	background-color:#bbb;
+	background-color: var(--dark-blue);
+	color: var(--light-text);
+	font-size: 12px;
+	font-weight: normal;
 }
 
 .results-table td, th {
-	text-transform:uppercase;
-	border:1px solid #222;
-	width:30px;
-	height:30px;
+	background-color: var(--light-text);
+	border: 1px solid var(--medium-blue);
+	color: var(--dark-blue);	
+	font-weight: bold;
+	height: 30px;
+	width: 30px;
+	text-transform: uppercase;
 }
 
 .results-table td {
@@ -33,12 +56,12 @@ html {
 	margin-left:58%;
 }
 
-.active-letter {
-	background-color:#b67fff;
+.results-table td.active-letter {
+	background-color:var(--highlight);
 }
 
 .no-matches {
-	color:red;
+	color: var(--red);
 }
 
 textarea:disabled{
@@ -46,11 +69,11 @@ textarea:disabled{
 }
 
 input:invalid {
-  	border: 1px solid red;
+  	border: 1px solid var(--red);
 }
 
 input:valid {
-  	border: 1px solid black;
+  	border: 1px solid var(--dark-text);
 }
 
 @media (max-width: 768px) {
